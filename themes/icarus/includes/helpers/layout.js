@@ -26,7 +26,7 @@ module.exports = function (hexo) {
             return widgets.filter(widget => widget.hasOwnProperty('position') && widget.position === position);
         }
         if (position === 'left') {
-            return widgets.filter(widget => widget.hasOwnProperty('position') && ['recent_posts'].includes(widget.type));
+            return widgets.filter(widget => widget.hasOwnProperty('position') && ['recent_posts', 'toc'].includes(widget.type));
         } else {
             return [];
         }
