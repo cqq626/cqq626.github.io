@@ -1,5 +1,6 @@
 window.formatNumStr = function (num) {
-    var numStr = num + '';
+    var numStrParts = (num + '').split('.');
+    var [numStr, numFracStr] = numStrParts;
     var numStrLen = numStr.length;
     var args = [];
     while(numStrLen > 3) {
@@ -8,5 +9,6 @@ window.formatNumStr = function (num) {
         numStrLen = numStr.length;
     }
     args.unshift(numStr);
-    return args.join(',');
+    var newNumStr = args.join(',');
+    return numFracStr ? `${newNumStr}.${numFracStr}` : numFracStr;
 };
