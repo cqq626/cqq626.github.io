@@ -6,20 +6,20 @@
     <script src="../../js/utils.js"></script>
 </head>
 <body>
-    <div id="main" style="width: 900px;height:350px;"></div>
+    <div id="main" style="width: 600px;height:350px;"></div>
     <script>
         var option = {
             animation: false,
             title: {
-                text: '国内生产总值（亿元）',
-                subtext: '国家统计局'
+                text: '在校生',
+                subtext: '教育部'
             },
             tooltip: {
                 trigger: 'axis',
-                formatter: window.formatterWithTotal
+                formatter: window.formatterWithoutTotal
             },
             legend: {
-                data: ['国内生产总值GDP', '国民总收入GNI', '第一产业', '第二产业', '第三产业']
+                data: ['学前教育', '小学', '初中', '高中(中专)', '本专科', '硕士', '博士']
             },
             grid: {
                 left: '3%',
@@ -30,36 +30,50 @@
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: ['2015', '2016', '2017', '2018', '2019', '2020']
+                data: ['2017', '2018', '2019']
             },
             yAxis: {
                 type: 'value'
             },
             series: [
                 {
-                    name: '国内生产总值GDP',
+                    name: '学前教育',
                     type: 'line',
-                    data: [688858.2, 746395.1, 832035.9, 919281.1, 986515.2, 1015986.2]
+                    data: [46001393, 46564204, 47138810]
                 },
                 {
-                    name: '国民总收入GNI',
+                    name: '小学',
                     type: 'line',
-                    data: [685571.2, 742694.1, 830945.7, 915243.5, 983751.2, 1008782.5]
+                    data: [101691216, 104125004, 106034691]
                 },
                 {
-                    name: '第一产业',
+                    name: '初中',
                     type: 'line',
-                    data: [57774.6, 60139.2, 62099.5, 64745.2, 70473.6, 77754.1]
+                    data: [44547631, 46680415, 48374364]
                 },
                 {
-                    name: '第二产业',
+                    name: '高中(中专)',
                     type: 'line',
-                    data: [281338.9, 295427.8, 331580.5, 364835.2, 380670.6, 384255.3]
+                    data: [39709871, 39346687, 39949000]
                 },
                 {
-                    name: '第三产业',
+                    name: '本专科',
                     type: 'line',
-                    data: [349744.7, 390828.1, 438355.9, 489700.8, 535371.0, 553976.8]
+                    data: [
+                        27535869+5441429+7359267,
+                        28310348+5909878+8256553,
+                        30315262+6685603+8578345
+                    ]
+                },
+                {
+                    name: '硕士',
+                    type: 'line',
+                    data: [2277564, 2341739, 2439530]
+                },
+                {
+                    name: '博士',
+                    type: 'line',
+                    data: [361997, 389518, 424182]
                 },
             ]
         };

@@ -16,28 +16,7 @@
             },
             tooltip: {
                 trigger: 'axis',
-                formatter: function (params) {
-                    const {name, data: total} = params[0];
-                    const children = params.reduce((acc, cur, idx) => {
-                        const {marker, seriesName, data} = cur;
-                        const percent = ((data / total) * 100).toFixed(2);
-                        acc.push(`
-                            <div style="margin: ${idx > 0 ? 10 : 0}px 0 0;line-height:1;">
-                                ${marker}
-                                <span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">${seriesName}</span>
-                                <span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">${formatNumStr(data)}${idx > 0 ? ' (' + percent + '%)' : ''}</span>
-                                <div style="clear:both"></div>
-                            </div>
-                        `);
-                        return acc;
-                    }, []);
-                    return `
-                        <div style="font-size:14px;color:#666;font-weight:400;line-height:1;">${name}</div>
-                        <div style="margin: 10px 0 0;line-height:1;">
-                            ${children.join('')}
-                        </div>
-                    `;
-                }
+                formatter: window.formatterWithTotal
             },
             legend: {
                 data: ['总人口', '男性', '女性', '城镇', '乡村']
